@@ -14590,14 +14590,17 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     </script>
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-
+<header>
+	<img src="https://github.com/chlopezgis/cl-web/blob/main/img/logo.png?raw=true" width="80" height="90">
+</header>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Procesos-ETL-con-GDAL"><strong><center>Procesos ETL con GDAL</center></strong><a class="anchor-link" href="#Procesos-ETL-con-GDAL">&#182;</a></h1><center><img src="../img/etl/002-heatmap.png" width="400" height="400"></center>
+<h1 id="Procesos-ETL-con-GDAL"><strong><center>Procesos ETL con GDAL</center></strong><a class="anchor-link" href="#Procesos-ETL-con-GDAL">&#182;</a></h1>
+<center><img src="https://github.com/chlopezgis/cl-web/blob/main/gdal/img/etl/002-heatmap.png?raw=true" width="400" height="400"></center>
 <p><strong>GDAL</strong> (Geospatial Data Abstraction Library) es una biblioteca de software ampliamente utilizada para trabajar con datos geoespaciales. Aunque <strong>GDAL</strong> no está diseñada específicamente como una herramienta de <strong>ETL</strong> (Extract, Transform, Load), puede desempeñar un papel importante en los procesos de <strong>ETL</strong> relacionados con datos geoespaciales al combinarse con otras herramientas.</p>
 <p>En este tutorial, nos centraremos en los procesos <strong>ETL</strong> relacionados con <strong>datos vectoriales</strong> y utilizaremos la biblioteca <strong>OGR</strong>, que forma parte de <strong>GDAL</strong>. Esta biblioteca proporciona una interfaz sencilla para leer, escribir y manipular datos en formatos vectoriales como Shapefile, GeoPackage, GeoJSON y KML, entre otros. Utilizaremos <strong>OGR</strong> en conjunto con Python para realizar diversas tareas de transformación y carga de datos geoespaciales vectoriales en un proceso de <strong>ETL</strong>.</p>
 <h2 id="Alcance"><strong>Alcance</strong><a class="anchor-link" href="#Alcance">&#182;</a></h2><p>El propósito de este tutorial es ofrecer un enfoque práctico para llevar a cabo los procesos de transformación y carga de diversos formatos de datos vectoriales hacia una base de datos PostGIS. Es importante destacar que no se abordarán procesos de extracción, ya que <strong>OGR</strong> no es la herramienta mas adecuada para este propósito.</p>
@@ -14667,7 +14670,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="c1">-- Crear esquema &quot;datos&quot; para almacenar las capas</span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">psql</span><span class="w"> </span><span class="o">-</span><span class="n">U</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">etl</span><span class="w"> </span><span class="o">-</span><span class="k">c</span><span class="w"> </span><span class="ss">&quot;CREATE SCHEMA datos&quot;</span><span class="w"></span>
 </pre></div>
-<p><img src="..%5Cimg%5Cetl%5C001-create-spatial-db.PNG" alt="image" /></p>
+<p><img src="https://github.com/chlopezgis/cl-web/blob/main/gdal/img/etl/002-heatmap.png?raw=true" alt="image" /></p>
 
 </div>
 </div>
