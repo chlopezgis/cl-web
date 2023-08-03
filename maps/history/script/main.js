@@ -57,7 +57,8 @@ function stylePolygon(feature){
 };
 
 //Cargar "geojson" con fetch API
-fetch("../_datos/bloques.geojson",{})
+rutaGjson='https://github.com/chlopezgis/cl-web/blob/main/maps/history/_datos/bloques.geojson'
+fetch(rutaGjson,{})
     .then((response) => response.json())
     .then((json) => {
         //Añadir al control con popUp
