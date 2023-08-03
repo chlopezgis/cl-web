@@ -57,7 +57,7 @@ function stylePolygon(feature){
 };
 
 //Cargar "geojson" con fetch API
-rutaGjson='https://github.com/chlopezgis/cl-web/blob/main/maps/history/_datos/bloques.geojson'
+rutaGjson='https://cors-anywhere.herokuapp.com/https://github.com/chlopezgis/cl-web/blob/main/maps/history/_datos/bloques.geojson'
 fetch(rutaGjson,{})
     .then((response) => response.json())
     .then((json) => {
