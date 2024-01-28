@@ -213,19 +213,6 @@ dfNhb.head(3)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -287,19 +274,6 @@ dfNhb.head(3)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -367,19 +341,6 @@ matriz.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -441,19 +402,6 @@ gdf[['IDDIST','DISTRITO','IDDIST_NHB', 'distancia']].head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -563,37 +511,12 @@ for index, row in gdf.sort_values(by='IDDIST').iterrows():
     print('\n')
 ```
 
-
-    
+   
 ![png](output_26_0.png)
-    
-
-
-    
-    
-    
-
-
     
 ![png](output_26_2.png)
     
-
-
-    
-    
-    
-
-
-    
 ![png](output_26_4.png)
-    
-
-
-    
-    
-    
-
-
     
 ![png](output_26_6.png)
     
