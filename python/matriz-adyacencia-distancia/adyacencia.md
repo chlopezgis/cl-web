@@ -512,473 +512,105 @@ for index, row in gdf.sort_values(by='IDDIST').iterrows():
 ```
 
    
-![png](output_26_0.png)
-    
-![png](output_26_2.png)
-    
-![png](output_26_4.png)
-    
-![png](output_26_6.png)
-    
+![png](img/output_26_0.png)
 
+![png](img/output_26_2.png)
 
-    
-    
-    
+![png](img/output_26_4.png)
 
+![png](img/output_26_6.png)
 
-    
-![png](output_26_8.png)
-    
+![png](img/output_26_8.png)
 
+![png](img/output_26_10.png)
 
-    
-    
-    
+![png](img/output_26_12.png)
 
+![png](img/output_26_14.png)
 
-    
-![png](output_26_10.png)
-    
+![png](img/output_26_16.png)
 
+![png](img/output_26_18.png)
 
-    
-    
-    
+![png](img/output_26_20.png)
 
+![png](img/output_26_22.png)
 
-    
-![png](output_26_12.png)
-    
+![png](img/output_26_24.png)
 
+![png](img/output_26_26.png)
 
-    
-    
-    
+![png](img/output_26_28.png)
 
+![png](img/output_26_30.png)
 
-    
-![png](output_26_14.png)
-    
+![png](img/output_26_32.png)
 
+![png](img/output_26_34.png)
 
-    
-    
-    
+![png](img/output_26_36.png)
 
+![png](img/output_26_38.png)
 
-    
-![png](output_26_16.png)
-    
+![png](img/output_26_40.png)
 
+![png](img/output_26_42.png)
 
-    
-    
-    
+![png](img/output_26_44.png)
 
+![png](img/output_26_46.png)
 
-    
-![png](output_26_18.png)
-    
+![png](img/output_26_48.png)
 
+![png](img/output_26_50.png)
 
-    
-    
-    
+![png](img/output_26_52.png)
 
+![png](img/output_26_54.png)
 
-    
-![png](output_26_20.png)
-    
+![png](img/output_26_56.png)
 
+![png](img/output_26_58.png)
 
-    
-    
-    
+![png](img/output_26_60.png)
 
+![png](img/output_26_62.png)
 
-    
-![png](output_26_22.png)
-    
+![png](img/output_26_64.png)
 
+![png](img/output_26_66.png)
 
-    
-    
-    
+![png](img/output_26_68.png)
 
+![png](img/output_26_70.png)
 
-    
-![png](output_26_24.png)
-    
+![png](img/output_26_72.png)
 
+![png](img/output_26_74.png)
 
-    
-    
-    
+![png](img/output_26_76.png)
 
+![png](img/output_26_78.png)
 
-    
-![png](output_26_26.png)
-    
+![png](img/output_26_80.png)
 
+![png](img/output_26_82.png)
 
-    
-    
-    
+![png](img/output_26_84.png)
 
+![png](img/output_26_86.png)
 
-    
-![png](output_26_28.png)
-    
+![png](img/output_26_88.png)
 
+![png](img/output_26_90.png)
 
-    
-    
-    
+![png](img/output_26_92.png)
 
+![png](img/output_26_94.png)
 
-    
-![png](output_26_30.png)
-    
+![png](img/output_26_96.png)
 
-
-    
-    
-    
-
-
-    
-![png](output_26_32.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_34.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_36.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_38.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_40.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_42.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_44.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_46.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_48.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_50.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_52.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_54.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_56.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_58.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_60.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_62.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_64.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_66.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_68.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_70.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_72.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_74.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_76.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_78.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_80.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_82.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_84.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_86.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_88.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_90.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_92.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_94.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_96.png)
-    
-
-
-    
-    
-    
-
-
-    
-![png](output_26_98.png)
+![png](img/output_26_98.png)
     
 
 
