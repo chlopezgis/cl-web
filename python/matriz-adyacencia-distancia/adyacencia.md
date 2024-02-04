@@ -151,7 +151,7 @@ gdf.plot(figsize=(5,5),
 
 
     
-![png](output_8_0.png)
+![png](img/output_8_0.png)
     
 
 
