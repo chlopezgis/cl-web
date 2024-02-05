@@ -453,7 +453,7 @@ print(f'CRS Colegios {gdfColLima.crs}')
 
 ### **4.3. Análisis del Vecino mas cercano**
 
-Antes de comenzar el análisis, crearemos en el GeoDataFrame de comisarías un campo de tipo texto que contendrá las geometrías almacenadas en formato **WKT**. Esta información será utilizada más adelante para construir un nuevo GeoDataFrame que incluirá el segmento de línea entre los colegios y la comisaría más cercana.
+Antes de comenzar el análisis, crearemos en el GeoDataFrame de comisarías un campo de tipo `shapely Point` que almacenara la geometria. Esta información será utilizada más adelante para construir un nuevo GeoDataFrame que incluirá el segmento de línea entre los colegios y la comisaría más cercana.
 
 
 ```python
