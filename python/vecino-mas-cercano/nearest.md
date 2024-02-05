@@ -222,7 +222,7 @@ dfColegios.head(3)
 
 **Filtro de columnas**
 
-La capa de colegios contiene muchas columnas, vamos a listar los nombres para visualizar solo las columnas que contienen las coordenadas.
+La capa de colegios contiene muchas columnas, vamos a listar los nombres para luego seleccionar solo las columnas de interes.
 
 
 ```python
