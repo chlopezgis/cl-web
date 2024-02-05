@@ -108,10 +108,6 @@ gdfComisarias.head(3)
     </tr>
   </tbody>
 </table>
-</div>
-
-
-
 
 ```python
 # Visualizar colegios
@@ -221,9 +217,6 @@ dfColegios.head(3)
   </tbody>
 </table>
 <p>3 rows × 48 columns</p>
-</div>
-
-
 
 ### **4.2. Preprocesamiento de los datos**
 
@@ -236,9 +229,6 @@ La capa de colegios contiene muchas columnas, vamos a listar los nombres para vi
 # Visualizar columnas de colegios
 dfColegios.columns.values
 ```
-
-
-
 
     array(['COD_MOD', 'ANEXO', 'CODLOCAL', 'CEN_EDU', 'NIV_MOD', 'D_NIV_MOD',
            'D_FORMA', 'COD_CAR', 'D_COD_CAR', 'TIPSSEXO', 'D_TIPSSEXO',
@@ -340,9 +330,6 @@ dfColegios.head()
     </tr>
   </tbody>
 </table>
-</div>
-
-
 
 **Conversión de datos**
 
@@ -417,9 +404,6 @@ gdfColegios.head(3)
     </tr>
   </tbody>
 </table>
-</div>
-
-
 
 **Filtro de registros**
 
@@ -432,9 +416,6 @@ gdfComLima = gdfComisarias.loc[gdfComisarias.provincia.isin(['LIMA','CALLAO'])]
 gdfComLima.shape
 ```
 
-
-
-
     (147, 9)
 
 
@@ -446,12 +427,7 @@ gdfColLima = gdfColegios.loc[gdfColegios.D_PROV.isin(['LIMA','CALLAO'])]
 gdfColLima.shape
 ```
 
-
-
-
     (13512, 9)
-
-
 
 **Reproyectar**
 
@@ -594,9 +570,6 @@ gdfNearLine.head()
     </tr>
   </tbody>
 </table>
-</div>
-
-
 
 Y listo, como se observa se ha identificado cual es la comisaria mas cercana a cada Colegio.
 
@@ -689,14 +662,10 @@ gdfNearLine.head(3)
     </tr>
   </tbody>
 </table>
-</div>
-
-
 
 ## **5. Resultados**
 
 A continuación, procederemos a calcular las distancias mínimas, máximas y medias desde los colegios hasta las comisarías más cercanas, centrándonos en esta evaluación a nivel de distrito. Este proceso brindará una perspectiva completa de la proximidad entre los centros educativos y las comisarías en cada municipio.
-
 
 ```python
 # Agrupando y calculando valores max, min y promedio por distrito
@@ -1177,9 +1146,6 @@ gdfRep.sort_values(by='distancia_mean', ascending=False)
     </tr>
   </tbody>
 </table>
-</div>
-
-
 
 Como se observa, en un conjunto de 25 municipios, la distancia promedio entre un colegio y la comisaría supera el kilómetro, y en 9 de ellos, dicha distancia promedio excede los 1.5 kilómetros. Con el propósito de identificar posibles patrones, examinemos gráficamente esta situación:
 
@@ -1218,13 +1184,9 @@ cx.add_basemap(ax
 
 plt.show()
 ```
-
-
     
 ![png](img/output_41_0.png)
-    
-
-
+  
 Como se observa en el gráfico, las zonas periféricas tienden a presentar distancias promedio superiores al kilómetro entre colegios y comisarías. Este patrón resalta la importancia de idear estrategias específicas para mejorar la accesibilidad y la seguridad en estas áreas.
 
 No obstante, para validar de manera más sólida esta suposición, se sugiere llevar a cabo estudios más detallados en estas zonas, abordando aspectos como el nivel delictivo y la peligrosidad. La inclusión de análisis más específicos permitirá llegar a conclusiones más certeras y respaldará de manera más completa las recomendaciones destinadas a optimizar la respuesta ante situaciones de emergencia y promover un entorno más seguro para la comunidad educativa en las zonas periféricas.
