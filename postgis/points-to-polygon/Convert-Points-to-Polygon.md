@@ -204,7 +204,7 @@ Finalmente, realizamos la consultas necesaria para su validación:
 
 ### **3. De puntos a Línea**
 
-A continuación vamos a construir segemento de línea que representan las rutas recorridas. Para ello es necesario ordenar la capa por el campo `id` y agrupar por el campo `track_id`. Utilizaremos la función PostGIS **[ST_MakeLine](https://postgis.net/docs/ST_MakeLine.html)**, la cual permite crear un objeto `LineString` a partir de una **secuencia de puntos**. Esta función toma como entrada una serie de geometrías de tipo `Point`, `MultiPoint` o `LineString` y las une para formar una línea continua.
+A continuación vamos a construir segmento de línea que representan las rutas recorridas. Para ello es necesario ordenar la capa por el campo `id`. Utilizaremos la función PostGIS **[ST_MakeLine](https://postgis.net/docs/ST_MakeLine.html)**, la cual permite crear un objeto `LineString` a partir de una **secuencia de puntos**. Esta función toma como entrada una serie de geometrías de tipo `Point`, `MultiPoint` o `LineString` y las une para formar una línea continua.
 
 
 ```sql
