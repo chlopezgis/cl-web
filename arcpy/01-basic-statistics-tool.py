@@ -49,7 +49,7 @@ class AnalisisExploratorio:
 
     # Funcion: Ejecutar calculo de estadisticas para todos los campos númericos
     def calculateStatsFields(self):
-        # Lista con los estadisticos de todos los campos
+        # Lista que almacenará los estadisticos de todos los campos
         self.listStats = list()
         # Iterar los campos
         for field in arcpy.ListFields(self.inLayer):
