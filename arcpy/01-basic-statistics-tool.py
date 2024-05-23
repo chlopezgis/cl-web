@@ -66,6 +66,7 @@ class AnalisisExploratorio:
         # Retorno de la función
         return self.listStats
 
+    # Funcion: Ejecutar proceso
     def executeProcessing(self):
         # Calcular estadisticas para todos los campos numéricos
         self.listAllStats = self.calculateStatsFields()
