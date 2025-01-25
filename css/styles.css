@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222222; /* Fondo más tenue */
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: whitesmoke; /* Títulos en negro */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff9800;
+}
+
+section {
+    padding: 50px;
+    text-align: center;
+}
+
+#about {
+    display: flex; /* Usa Flexbox para alinear los elementos en una fila */
+}
+
+
+.about-container {
+    display: flex; /* Utiliza Flexbox para alinear los divs en una fila */
+    gap: 10px;
+}
+
+.about-text, .about-foto {
+    width: 45%; /* Puedes ajustar el ancho de cada div según lo que necesites */
+    padding: 10px;
+}
+
+.about-foto img {
+    width: 250px; /* Define el tamaño de la imagen */
+    height: 250px; /* Define el tamaño de la imagen */
+    border-radius: 50%; /* Hace que la imagen sea un círculo */
+    margin-right: auto;
+    margin-left:0;
+}
+
+.about-text {
+    width: 800px;  /* Define el tamaño fijo del contenedor */
+    margin-left:auto;
+    margin-right: 0;
+    text-align: left;  /* Alinea el texto a la izquierda */
+}
+
+.about-me {
+    font-family: Arial, sans-serif;
+    font-size: 1.0rem;
+    line-height: 1.2;
+    color: #d4d2c6;
+    margin: 0px 0;
+    text-align: left;
+}
+
+
+.project {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.project:hover {
+    transform: scale(1.05);
+}

@@ -3,36 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>LuGIS</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js"></script>
 </head>
 <body>
     <header>
-        <h1>Mi Nombre</h1>
-        <p>Geographic Engineer & GIS Developer</p>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#education">Formación</a></li>
+                <li><a href="#home">Habilidades</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#about">Sobre mí</a></li>
-            <li><a href="#projects">Proyectos</a></li>
-            <li><a href="#contact">Contacto</a></li>
-        </ul>
-    </nav>
+    
     <section id="about">
-        <h2>Sobre mí</h2>
-        <p>Descripción breve de tu experiencia y habilidades.</p>
+        <div class="about-container">
+            <div class="about-foto">
+                <img src="img/foto.jpeg" alt="foto">
+            </div>
+            <div class="about-text">
+                <h1>Charlie Lopez Rengifo</h1>
+                <h2>Sobre Mí</h2>
+                <p class="about-me">
+                    Soy Ingeniero Geógrafo y de Sistemas, y mi pasión por la geotecnología me ha impulsado a 
+                    explorar cómo los <b>datos geoespaciales</b> pueden ser procesados y convertidos en soluciones 
+                    prácticas. En este espacio, compartiré proyectos, conocimientos y experiencias relacionados 
+                    con la gestión y el análisis de datos geoespaciales, siempre con el objetivo de generar 
+                    valor y optimizar procesos. ¡Espero que el contenido sea útil e interesante para ustedes!
+                </p>
+            </div>
+        </div>
     </section>
+    
     <section id="projects">
         <h2>Proyectos</h2>
         <div class="project">
             <h3>Proyecto 1</h3>
-            <p>Descripción del proyecto.</p>
+            <p>Descripción breve del proyecto.</p>
+        </div>
+        <div class="project">
+            <h3>Proyecto 2</h3>
+            <p>Descripción breve del proyecto.</p>
         </div>
     </section>
+    
     <section id="contact">
         <h2>Contacto</h2>
-        <p>Email: tuemail@example.com</p>
+        <p>Encuéntrame en redes sociales:</p>
+        <ul>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">GitHub</a></li>
+        </ul>
     </section>
-    <script src="script.js"></script>
 </body>
 </html>
