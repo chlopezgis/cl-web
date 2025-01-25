@@ -7,34 +7,29 @@ body {
 }
 
 header {
-    background: #333;
-    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Ajusta la altura del header según tu diseño */
     padding: 20px;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Con transparencia */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    z-index: 1000; /* Para que esté sobre el resto del contenido */
+}
+
+#home {
+    margin-top: 80px; /* Mayor que la altura del header */
 }
 
 h1, h2, h3 {
     color: whitesmoke; /* Títulos en negro */
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #ff9800;
 }
 
 section {
@@ -42,37 +37,61 @@ section {
     text-align: center;
 }
 
-#about {
-    display: flex; /* Usa Flexbox para alinear los elementos en una fila */
+/* Estilos del menú */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-.about-container {
+.nav-links li a:hover {
+    color: #ffcc00;
+}
+
+/* Botón menú hamburguesa (oculto en pantallas grandes) */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+.home-container {
     display: flex; /* Utiliza Flexbox para alinear los divs en una fila */
     gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Espacia los elementos */
 }
 
-.about-text, .about-foto {
+.home-text, .home-foto {
     width: 45%; /* Puedes ajustar el ancho de cada div según lo que necesites */
     padding: 10px;
 }
 
-.about-foto img {
+.home-foto img {
     width: 250px; /* Define el tamaño de la imagen */
     height: 250px; /* Define el tamaño de la imagen */
     border-radius: 50%; /* Hace que la imagen sea un círculo */
     margin-right: auto;
     margin-left:0;
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor */
 }
 
-.about-text {
-    width: 800px;  /* Define el tamaño fijo del contenedor */
+.home-text {
+    width: auto;  /* Define el tamaño fijo del contenedor */
     margin-left:auto;
     margin-right: 0;
     text-align: left;  /* Alinea el texto a la izquierda */
+    flex: 1; /* Hace que el texto ocupe el espacio restante */
 }
 
-.about-me {
+.home-text-1 {
     font-family: Arial, sans-serif;
     font-size: 1.0rem;
     line-height: 1.2;
@@ -80,7 +99,6 @@ section {
     margin: 0px 0;
     text-align: left;
 }
-
 
 .project {
     background: white;
@@ -93,4 +111,49 @@ section {
 
 .project:hover {
     transform: scale(1.05);
+}
+
+
+/* 📱 Responsive: Menú hamburguesa en pantallas pequeñas */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Oculta el menú por defecto */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(51, 51, 51, 0.6);
+        width: 200px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .nav-links.show {
+        display: flex; /* Muestra el menú cuando se activa */
+    }
+
+    .menu-toggle {
+        display: block; /* Muestra el icono del menú */
+    }
+
+    .home-container {
+        flex-direction: column; /* Cambia a diseño vertical */
+        text-align: center;
+    }
+
+    .home-foto {
+        display: flex;
+        justify-content: center;
+        width: 100%; /* Asegura que el contenedor ocupe toda la pantalla */
+    }
+
+    .home-foto img {
+        width: 200px; /* Reduce el tamaño de la imagen */
+        height: 200px;
+        margin: auto; /* Centra la imagen */
+    }
+
+    .home-text {
+        width: 100%; /* Asegura que el texto no se encime */
+    }
 }
