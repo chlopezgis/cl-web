@@ -100,19 +100,6 @@ section {
     text-align: left;
 }
 
-.project {
-    background: black;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.project:hover {
-    transform: scale(1.05);
-}
-
 
 /* 📱 Responsive: Menú hamburguesa en pantallas pequeñas */
 @media (max-width: 768px) {

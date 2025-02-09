@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LuGIS</title>
+
+    <!-- Estilos para el proyecto -->
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/proyects.css">
+    
+    <!-- Scripts -->
+    <script src="js/projects.js" defer></script>
+    
+    <!-- Título -->
+    <title>LuGIS</title>
 </head>
 <body>
     <header>
@@ -15,7 +22,7 @@
                 <li><a href="#home">Inicio</a></li>
                 <li><a href="#about">Sobre mí</a></li>
                 <li><a href="#education">Formación</a></li>
-                <li><a href="#home">Habilidades</a></li>
+                <li><a href="#skills">Habilidades</a></li> <!-- Corrige "home" duplicado -->
                 <li><a href="#projects">Proyectos</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
@@ -43,14 +50,69 @@
     </section>
     
     <section id="projects">
-        <h2>Proyectos</h2>
-        <div class="project">
-            <h3>Geoportal de Comas</h3>
-			<iframe src="https://chlopezgis.github.io/cl-web-projects/GeoportalComas/" width="100%" height="600px"></iframe>
+        <h2>Mis Proyectos</h2>
+    
+        <!-- Botones de pestañas -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showCategory('qgis')">QGIS</button>
+            <button class="tab-button" onclick="showCategory('python')">Python</button>
+            <button class="tab-button" onclick="showCategory('postgis')">PostGIS</button>
+            <button class="tab-button" onclick="showCategory('webmapping')">WebMapping</button>
         </div>
-        <div class="project">
-            <h3>Proyecto 2</h3>
-            <p>Descripción breve del proyecto.</p>
+    
+        <!-- Contenedor de proyectos con Grid -->
+        <div class="projects-container">
+            <!-- Proyectos de QGIS -->
+            <div class="project qgis">
+                <h3>Funciones de arreglos</h3>
+                <p>
+                    Las funciones de arreglo en QGIS permiten crear y manipular listas
+                    ordenadas de datos, facilitando operaciones avanzadas en análisis 
+                    geoespacial. Estas herramientas son esenciales para gestionar y analizar 
+                    conjuntos de datos estructurados de manera eficiente en proyectos SIG</p>
+                <a href="projects/qgis/arreglos.html" target="_blank">Ver proyecto</a>
+            </div>
+            <div class="project qgis">
+                <h3>Funciones Agregadas</h3>
+                <p>Otro proyecto QGIS.</p>
+                <a href="#">Ver en GitHub</a>
+            </div>
+    
+            <!-- Proyectos de Python -->
+            <div class="project python">
+                <h3>Proyecto Python 1</h3>
+                <p>Automatización con Python.</p>
+                <a href="#">Ver en GitHub</a>
+            </div>
+            <div class="project python">
+                <h3>Proyecto Python 2</h3>
+                <p>Otro análisis con Python.</p>
+                <a href="#">Ver en GitHub</a>
+            </div>
+    
+            <!-- Proyectos de PostGIS -->
+            <div class="project postgis">
+                <h3>Proyecto PostGIS 1</h3>
+                <p>Descripción breve.</p>
+                <a href="#">Ver en GitHub</a>
+            </div>
+            <div class="project postgis">
+                <h3>Proyecto PostGIS 2</h3>
+                <p>Otro proyecto PostGIS.</p>
+                <a href="#">Ver en GitHub</a>
+            </div>
+
+            <!-- Proyectos de Webmapping -->
+            <div class="project webmapping">
+                <h3>Proyecto WebMapping 1</h3>
+                <p>Descripción breve.</p>
+                <a href="#">Ver en GitHub</a>
+            </div>
+            <div class="project webmapping">
+                <h3>Proyecto WebMapping 2</h3>
+                <p>Otro proyecto WebMapping.</p>
+                <a href="#">Ver en GitHub</a>
+            </div>
         </div>
     </section>
     
