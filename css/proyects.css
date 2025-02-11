@@ -1,5 +1,5 @@
 #projects p{
-    color: rgb(240, 216, 237);
+    color: rgb(27, 49, 43);
 }
 
 /* Botones de pestañas */
@@ -10,10 +10,10 @@
 }
 
 .tab-button {
-    padding: 10px 15px;
+    padding: 15px 30px;
     margin: 5px;
     border: none;
-    background: #007bff;
+    background: #0e7a68;
     color: white;
     cursor: pointer;
     border-radius: 5px;
@@ -21,7 +21,7 @@
 }
 
 .tab-button.active {
-    background: #0056b3;
+    background: #03413b;
 }
 
 /* Contenedor de proyectos */
@@ -36,10 +36,10 @@
 
 /* Estilo de cada tarjeta */
 .project {
-    background: #050413ea;
+    background: #e1f3efea;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.349);
     text-align: center;
     display: none;  /* Oculto por defecto */
 }

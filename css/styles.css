@@ -2,26 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #222222; /* Fondo más tenue */
+    background-color: #fff; /* Fondo más tenue */
     color: #333;
-}
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px; /* Ajusta la altura del header según tu diseño */
-    padding: 20px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.6); /* Con transparencia */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    z-index: 1000; /* Para que esté sobre el resto del contenido */
 }
 
 #home {
@@ -29,7 +11,7 @@ header {
 }
 
 h1, h2, h3 {
-    color: whitesmoke; /* Títulos en negro */
+    color: rgb(37, 134, 121); /* Títulos en negro */
 }
 
 section {
@@ -37,30 +19,6 @@ section {
     text-align: center;
 }
 
-/* Estilos del menú */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.nav-links li a:hover {
-    color: #ffcc00;
-}
-
-/* Botón menú hamburguesa (oculto en pantallas grandes) */
-.menu-toggle {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-}
 
 .home-container {
     display: flex; /* Utiliza Flexbox para alinear los divs en una fila */
@@ -95,34 +53,13 @@ section {
     font-family: Arial, sans-serif;
     font-size: 1.0rem;
     line-height: 1.2;
-    color: #d4d2c6;
+    color: #09443aec;
     margin: 0px 0;
     text-align: left;
 }
 
-
 /* 📱 Responsive: Menú hamburguesa en pantallas pequeñas */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Oculta el menú por defecto */
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: rgba(51, 51, 51, 0.6);
-        width: 200px;
-        padding: 10px;
-        border-radius: 10px;
-    }
-
-    .nav-links.show {
-        display: flex; /* Muestra el menú cuando se activa */
-    }
-
-    .menu-toggle {
-        display: block; /* Muestra el icono del menú */
-    }
-
     .home-container {
         flex-direction: column; /* Cambia a diseño vertical */
         text-align: center;
