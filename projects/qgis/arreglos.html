@@ -3,113 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/projects-styles.css">
     <title>Funciones de Arreglo en QGIS</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Enlaza tu CSS aquí -->
 </head>
 <body>
 
     <header>
-        <h1>Funciones de Arreglo en QGIS</h1>
+        <h1>Arreglos en QGIS</h1>
     </header>
 
-    <main>
-        <section class="content">
-            <p>Las funciones de arreglos nos permiten <strong>crear y manipular matrices</strong>. Cada valor dentro de la matriz se identifica por la posición que ocupa dentro de esta, por tal motivo, para este tipo de estructura, el orden especificado es de vital importancia.</p>
+    <div class="container">
+        <aside class="indice">
+            <div id="logo">
+                <img src="../../img/logo.png" alt="logo">
+            </div>
+            <ul>
+                <li><a href="#datos">Datos a utilizar</a></li>
+                <li><a href="#maximo">Obtener el valor máximo</a></li>
+                <li><a href="#mes-max">Mes con máxima precipitación</a></li>
+                <li><a href="#contar">Contar valores bajo una condición</a></li>
+            </ul>
+        </aside>
 
-            <p>A continuación se detallan algunos ejemplos de usos de arreglos dentro de la calculadora de campos de QGIS.</p>
-        </section>
+        <main>
+            <section id="datos" class="content">
+                <h2 class="section-title">Datos a utilizar</h2>
+                <p>Para el desarrollo de los ejemplos se utilizarán los datos de <strong>precipitación</strong> de la comunidad de Aragón en España.</p>
+                <img src="https://user-images.githubusercontent.com/88239150/227383279-d40efb07-ec98-4142-9617-1c967f5edf55.png" alt="Tabla de datos de precipitación" class="img-responsive">
+            </section>
 
-        <section class="content">
-            <h2 class="section-title">Datos a utilizar</h2>
-            <p>Para el desarrollo de los ejemplos se utilizarán los datos de <strong>precipitación</strong> de la comunidad de Aragón en España. Esta capa cuenta con campos que almacenan los valores de la precipitación medida para cada mes:</p>
-            <img src="https://user-images.githubusercontent.com/88239150/227383279-d40efb07-ec98-4142-9617-1c967f5edf55.png" alt="Tabla de datos de precipitación" class="img-responsive">
-        </section>
-
-        <section class="content">
-            <h2 class="section-title">1. Obtener el valor máximo de un arreglo</h2>
-            <p>Obtener el valor de la precipitación máxima del año:</p>
-            <div class="card">
-                <pre><code>
+            <section id="maximo" class="content">
+                <h2 class="section-title">1. Obtener el valor máximo de un arreglo</h2>
+                <p>Obtener el valor de la precipitación máxima del año:</p>
+                <div class="code-block">
+                    <pre><code>
 array_max(
     array(
-        "E","F","M","Ab","My","J",
-        "Jl","Ag","S","O","N","D"
+        "E","F","M","Ab","My","J","Jl","Ag","S","O","N","D"
+        )
     )
-)
-                </code></pre>
-            </div>
+                    </code></pre>
+                </div>
+                <h3>Resultado:</h3>
+                <img src="https://user-images.githubusercontent.com/88239150/227385052-080d31d4-10ea-49fd-bfea-ae5fe62a67cc.png" alt="Resultado del cálculo" class="img-responsive">
+            </section>
 
-            <p><strong>Explicación:</strong></p>
-            <ul>
-                <li><strong>array_max:</strong> Devuelve el valor máximo de una matriz.</li>
-                <li><strong>array:</strong> Devuelve un arreglo con los valores de precipitación de cada mes.</li>
-            </ul>
-
-            <h3>Resultado:</h3>
-            <img src="https://user-images.githubusercontent.com/88239150/227385052-080d31d4-10ea-49fd-bfea-ae5fe62a67cc.png" alt="Resultado del cálculo" class="img-responsive">
-        </section>
-
-        <section class="content">
-            <h2 class="section-title">2. Obtener el mes con la máxima precipitación</h2>
-            <p>Obtener la descripción del mes donde ocurre la precipitación máxima utilizando la función <strong>with_variable</strong>:</p>
-            <div class="card">
-                <pre><code>
+            <section id="mes-max" class="content">
+                <h2 class="section-title">2. Obtener el mes con la máxima precipitación</h2>
+                <p>Obtener la descripción del mes donde ocurre la precipitación máxima:</p>
+                <div class="code-block">
+                    <pre><code>
 with_variable(
     'index_maxPrec',
     array_find(
         array(
-            "E","F","M","Ab","My","J",
-            "Jl","Ag","S","O","N","D"
+            "E","F","M","Ab","My","J","Jl","Ag","S","O","N","D"
         ),
         "maxPrec" 
     ),
     array_get(
         array(
-            'E','F','M','Ab','My','J',
-            'Jl','Ag','S','O','N','D'
+            'E','F','M','Ab','My','J','Jl','Ag','S','O','N','D'
         ),
         @index_maxPrec
     )
 )
-                </code></pre>
-            </div>
+                    </code></pre>
+                </div>
+                <h3>Resultado:</h3>
+                <img src="https://user-images.githubusercontent.com/88239150/227388453-7f7e03ca-1bc3-479d-89b6-b0341ff8ccc7.png" alt="Resultado del cálculo" class="img-responsive">
+            </section>
 
-            <p><strong>Explicación:</strong></p>
-            <ul>
-                <li><strong>array_find:</strong> Devuelve el índice del valor máximo.</li>
-                <li><strong>array_get:</strong> Obtiene el nombre del mes en función del índice encontrado.</li>
-            </ul>
-
-            <h3>Resultado:</h3>
-            <img src="https://user-images.githubusercontent.com/88239150/227388453-7f7e03ca-1bc3-479d-89b6-b0341ff8ccc7.png" alt="Resultado del cálculo" class="img-responsive">
-        </section>
-
-        <section class="content">
-            <h2 class="section-title">3. Contar valores bajo una condición</h2>
-            <p>Para este ejemplo queremos contar cuántos campos de precipitación tienen valores diferentes de 0:</p>
-            <div class="card">
-                <pre><code>
+            <section id="contar" class="content">
+                <h2 class="section-title">3. Contar valores bajo una condición</h2>
+                <p>Para este ejemplo queremos contar cuántos campos de precipitación tienen valores diferentes de 0:</p>
+                <div class="code-block">
+                    <pre><code>
 with_variable(
     'campos',
     array(
-        "E","F","M","Ab","My","J",
-        "Jl","Ag","S","O","N","D"
+        "E","F","M","Ab","My","J","Jl","Ag","S","O","N","D"
     ),
     array_length(@campos) - array_count(@campos, 0)
 )
-                </code></pre>
-            </div>
-
-            <p><strong>Explicación:</strong></p>
-            <ul>
-                <li><strong>array_length:</strong> Devuelve el número de elementos del arreglo.</li>
-                <li><strong>array_count:</strong> Cuenta cuántas veces aparece el valor 0.</li>
-            </ul>
-
-            <h3>Resultado:</h3>
-            <img src="https://user-images.githubusercontent.com/88239150/227390106-45f91d30-d272-4848-ac08-14c5b1526a12.png" alt="Resultado del cálculo" class="img-responsive">
-        </section>
-    </main>
+                    </code></pre>
+                </div>
+                <h3>Resultado:</h3>
+                <img src="https://user-images.githubusercontent.com/88239150/227390106-45f91d30-d272-4848-ac08-14c5b1526a12.png" alt="Resultado del cálculo" class="img-responsive">
+            </section>
+        </main>
+    </div>
 
 </body>
 </html>

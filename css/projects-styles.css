@@ -1,0 +1,114 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Fondo blanco */
+    color: #333333; /* Texto gris oscuro */
+}
+
+/* Estilos del header */
+header {
+    color: #3cad8b; /* Verde claro */
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    width: 80%; /* Ocupa todo el ancho sin superponerse */
+    margin-left: 20%; /* Se mueve a la derecha del aside */
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+/* Índice fijo */
+.indice {
+    background: linear-gradient(to bottom, rgba(245, 245, 245, 0.8), rgba(255, 255, 255, 0.5));
+    color: #09443aec; /* Verde oscuro */
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 20%; /* Asegura que no se solape con el contenido */
+    height: 100vh; /* Ocupa toda la altura */
+    overflow-y: auto; /* Permite scroll si es necesario */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#logo {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Asegura que se mantenga alineado verticalmente si es necesario */
+    margin-bottom: 60px; /* Espaciado debajo del logo */
+}
+
+#logo img {
+    max-width: 40%; /* Ajusta el tamaño sin desbordar */
+    height: auto;
+}
+
+.indice ul {
+    list-style: none;
+}
+
+.indice ul li {
+    margin: 10px 0;
+}
+
+.indice ul li a {
+    text-decoration: none;
+    color: #09443aec; /* Verde oscuro */
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.indice ul li a:hover {
+    background-color: #c8e6c9; /* Verde claro */
+}
+
+/* Activo */
+.indice ul li a.selected {
+    background-color: rgba(9, 177, 171, 0.822);
+    color: rgb(255, 255, 255);
+}
+
+/* Estilos para el contenido */
+main {
+    padding: 20px 30px;
+    overflow-y: auto;
+    width: 80%;
+    margin-left: 20%; /* Se mueve a la derecha del aside */
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+main h2{
+    color: #30a19c;
+    border-bottom: 2px solid #35a09b;
+}
+
+/* Secciones */
+.content {
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+/* Bloque de código */
+.code-block {
+    background-color: #f0f8f6ea; /* Verde muy claro */
+    color: #08473a;
+    padding: 10px;
+    border-radius: 2px;
+    margin: 20px 0px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    border: 0.5px solid #e3eeec;
+}
+
+.code-block pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
