@@ -7,36 +7,102 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff; /* Fondo blanco */
-    color: #333333; /* Texto gris oscuro */
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* Estilos del header */
 header {
-    color: #3cad8b; /* Verde claro */
+    color: #3cad8b;
     padding: 15px;
     text-align: center;
     font-size: 18px;
-    width: 80%; /* Ocupa todo el ancho sin superponerse */
-    margin-left: 20%; /* Se mueve a la derecha del aside */
+    width: 100%;
     box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
-/* Índice fijo */
+/* Botón para mostrar/ocultar índice (Menú hamburguesa) */
+.menu-btn {
+    display: none;
+    background-color: #3cad8b;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+/* Índice */
 .indice {
     background: linear-gradient(to bottom, rgba(245, 245, 245, 0.8), rgba(255, 255, 255, 0.5));
-    color: #09443aec; /* Verde oscuro */
+    color: #09443aec;
     padding: 20px;
+    width: 20%;
+    height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
-    width: 20%; /* Asegura que no se solape con el contenido */
-    height: 100vh; /* Ocupa toda la altura */
-    overflow-y: auto; /* Permite scroll si es necesario */
+    overflow-y: auto;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: transform 0.3s ease-in-out;
 }
 
+/* Boton hamburguesa para pantallas pequeñas */
+.menu-btn {
+    display: none;
+    background-color: #3cad8b;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+/* Elemntos del indice */
+.indice ul {
+    list-style: none;
+    padding: 0;
+}
+
+.indice ul li {
+    margin: 10px 0;
+}
+
+.indice ul li a {
+    text-decoration: none;
+    color: #09443aec;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* Al pasar sobre el indice */
+.indice ul li a:hover {
+    background-color: #c8e6c9;
+}
+
+/* Activo */
+.indice ul li a.selected {
+    background-color: rgba(9, 177, 171, 0.822);
+    color: rgb(255, 255, 255);
+}
+
+/* Estilos del logo */
 #logo {
     display: flex;
     justify-content: center; /* Centra horizontalmente */
@@ -49,39 +115,13 @@ header {
     height: auto;
 }
 
-.indice ul {
-    list-style: none;
-}
-
-.indice ul li {
-    margin: 10px 0;
-}
-
-.indice ul li a {
-    text-decoration: none;
-    color: #09443aec; /* Verde oscuro */
-    display: block;
-    padding: 8px;
-    border-radius: 5px;
-}
-
-.indice ul li a:hover {
-    background-color: #c8e6c9; /* Verde claro */
-}
-
-/* Activo */
-.indice ul li a.selected {
-    background-color: rgba(9, 177, 171, 0.822);
-    color: rgb(255, 255, 255);
-}
-
 /* Estilos para el contenido */
 main {
     padding: 20px 30px;
-    overflow-y: auto;
+	overflow-y: auto;
     width: 80%;
-    margin-left: 20%; /* Se mueve a la derecha del aside */
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    margin-left: 20%;
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 main h2{
@@ -111,4 +151,52 @@ main h2{
 .code-block pre {
     margin: 0;
     white-space: pre-wrap;
+}
+
+/* Imágenes responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+/* Ocultar logo en pantallas pequeñas */
+#logo {
+    display: block;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .indice {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        overflow: hidden;
+        transform: translateX(-100%);
+    }
+    
+    .indice.active {
+        width: 250px;
+        height: 100vh;
+        padding: 20px;
+        transform: translateX(0);
+    }
+    
+    .menu-btn {
+        display: block;
+    }
+
+    main {
+        width: 100%;
+        margin-left: 0;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        font-size: 16px;
+        padding: 10px;
+    }
 }

@@ -10,6 +10,7 @@
 
     <header>
         <h1>Arreglos en QGIS</h1>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
     </header>
 
     <div class="container">
@@ -94,5 +95,16 @@ with_variable(
         </main>
     </div>
 
+    <script>
+        function toggleMenu() {
+            document.querySelector(".indice").classList.toggle("active");
+        }
+    
+        document.querySelectorAll(".indice a").forEach(link => {
+            link.addEventListener("click", () => {
+                document.querySelector(".indice").classList.remove("active");
+            });
+        });
+    </script>
 </body>
 </html>
