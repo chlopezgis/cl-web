@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sofia&display=swap');
+
+#home {
+    margin-top: 50px; /* Mayor que la altura del header */
+}
+
+
+.home-container {
+    display: flex; /* Utiliza Flexbox para alinear los divs en una fila */
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Espacia los elementos */
+}
+
+.title {
+    font-size: 52px;
+    text-align: center;
+    padding-top: 10px;
+    font-family: Roboto;
+}
+
+#home h2{
+    color:rgb(5, 48, 46);
+    text-align: center;
+    font-size: 20px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.home-text {
+    width: auto;  /* Define el tamaño fijo del contenedor */
+    margin-left:auto;
+    margin-right: 0;
+    text-align: left;  /* Alinea el texto a la izquierda */
+    flex: 1; /* Hace que el texto ocupe el espacio restante */
+}
+
+.home-text-1 {
+    font-family: Arial, sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    color: #09443aec;
+    margin: 0px 0;
+    text-align: center;
+    padding: 50px 250px;
+    font-family: Roboto;
+}
+
+/* 📱 Responsive: Menú hamburguesa en pantallas pequeñas */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column; /* Cambia a diseño vertical */
+        text-align: center;
+    }
+
+    .home-text {
+        width: 100%; /* Asegura que el texto no se encime */
+    }
+
+    .home-text-1{
+        padding: 30px 0px;
+    }
+}

@@ -1,47 +1,29 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff; /* Fondo más tenue */
-    color: #333;
+#about {
+    margin-top: 30px; /* Mayor que la altura del header */
 }
 
-#home {
-    margin-top: 80px; /* Mayor que la altura del header */
-}
-
-h1, h2, h3 {
-    color: rgb(37, 134, 121); /* Títulos en negro */
-}
-
-section {
-    padding: 50px;
-    text-align: center;
-}
-
-
-.home-container {
+.about-container {
     display: flex; /* Utiliza Flexbox para alinear los divs en una fila */
     gap: 10px;
     flex-wrap: wrap;
     justify-content: space-between; /* Espacia los elementos */
 }
 
-.home-text, .home-foto {
-    width: 45%; /* Puedes ajustar el ancho de cada div según lo que necesites */
-    padding: 10px;
+.about-text, .about-foto {
+    width: 30%; /* Puedes ajustar el ancho de cada div según lo que necesites */
+    padding-top: 60px;
 }
 
-.home-foto img {
-    width: 250px; /* Define el tamaño de la imagen */
-    height: 250px; /* Define el tamaño de la imagen */
+.about-foto img {
+    width: 200px; /* Define el tamaño de la imagen */
+    height: 200px; /* Define el tamaño de la imagen */
     border-radius: 50%; /* Hace que la imagen sea un círculo */
     margin-right: auto;
     margin-left:0;
     object-fit: cover; /* Ajusta la imagen dentro del contenedor */
 }
 
-.home-text {
+.about-text {
     width: auto;  /* Define el tamaño fijo del contenedor */
     margin-left:auto;
     margin-right: 0;
@@ -49,7 +31,7 @@ section {
     flex: 1; /* Hace que el texto ocupe el espacio restante */
 }
 
-.home-text-1 {
+.about-text-1 {
     font-family: Arial, sans-serif;
     font-size: 1.0rem;
     line-height: 1.2;
@@ -60,24 +42,31 @@ section {
 
 /* 📱 Responsive: Menú hamburguesa en pantallas pequeñas */
 @media (max-width: 768px) {
-    .home-container {
+    .about-container {
         flex-direction: column; /* Cambia a diseño vertical */
         text-align: center;
     }
 
-    .home-foto {
+    .about-foto {
         display: flex;
         justify-content: center;
         width: 100%; /* Asegura que el contenedor ocupe toda la pantalla */
+        padding: 50px 0px 0px 0px;
     }
 
-    .home-foto img {
-        width: 200px; /* Reduce el tamaño de la imagen */
-        height: 200px;
+    .about-foto img {
+        width: 180px; /* Reduce el tamaño de la imagen */
+        height: 180px;
         margin: auto; /* Centra la imagen */
     }
 
-    .home-text {
+    .about-text {
         width: 100%; /* Asegura que el texto no se encime */
+        text-align: center;
+        padding: 0px;
+    }
+
+    .about-text-1 {
+        text-align: center;
     }
 }
