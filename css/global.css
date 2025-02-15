@@ -16,5 +16,19 @@ h1, h2, h3 {
 
 section {
     padding-top: 30px;
+    padding-bottom: 30px;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(71, 100, 94, 0.349);
+    margin: 50px 0px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    section{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 5px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 }
