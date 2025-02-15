@@ -4,7 +4,6 @@
     margin-top: 50px; /* Mayor que la altura del header */
 }
 
-
 .home-container {
     display: flex; /* Utiliza Flexbox para alinear los divs en una fila */
     gap: 10px;
@@ -37,7 +36,7 @@
 
 .home-text-1 {
     font-family: Arial, sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 1.2;
     color: #09443aec;
     margin: 0px 0;
@@ -55,9 +54,12 @@
 
     .home-text {
         width: 100%; /* Asegura que el texto no se encime */
+        padding-left: 10px;
+        padding-right: 20px;
     }
 
     .home-text-1{
-        padding: 30px 0px;
+        padding-left: 20px;
+        padding-right: 30px;
     }
 }

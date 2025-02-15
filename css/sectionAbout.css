@@ -68,5 +68,7 @@
 
     .about-text-1 {
         text-align: center;
+        padding-left: 20px;
+        padding-right: 30px;
     }
 }
