@@ -1,3 +1,61 @@
-#education img{
-    width: 120px;
+/* Contenedor principal de las tarjetas */
+.education-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se distribuyan correctamente */
+    justify-content: center; /* Centra las tarjetas */
+    align-items: stretch; /* Hace que las tarjetas tengan la misma altura */
+    gap: 15px; /* Espacio entre tarjetas */
+    max-width: 800px; /* Ajusta el ancho máximo según necesites */
+    margin: auto; /* Centrar el contenedor */
+}
+
+
+.education-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    width: 220px;
+    height: 220px;
+    text-align: center;
+}
+
+/* Contenedor del logo */
+.education-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ocupar todo el ancho de la tarjeta */
+    height: 80px; /* Mantener un tamaño estándar */
+    margin-bottom: 15px; /* Espacio con el texto */
+}
+
+/* Estilo del logo */
+.education-logo {
+    /*max-width: 60px; /* Se ajusta al ancho */
+    height: 60px; /* Se ajusta a la altura */
+    object-fit: contain; /* Evita deformaciones */
+}
+
+/* Estilos de los textos */
+.education-card h3 {
+    font-size: 14px;
+    margin: 6px 0;
+}
+
+.education-degree {
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+.education-period {
+    font-size: 12px;
+}
+
+#education .title {
+    font-size: 35px;
+    text-align: center;
+    padding-top: 10px;
+    font-family: Roboto;
 }
