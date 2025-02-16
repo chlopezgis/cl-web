@@ -43,6 +43,14 @@
         align-items: center;
     }
     .skill-card {
-        width: 120px;
+        width: 60px;
     }
+
+    .skill-card img {
+        width: 50px;  /* Ajusta el tamaño según necesites */
+        height: 50px;
+        display: block;
+        margin: auto;
+    }
+    
 }
