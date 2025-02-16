@@ -42,3 +42,18 @@ section {
     background: #f9f9f9;
     box-sizing: border-box; /* Asegura que los márgenes no causen desbordamiento */
 }
+
+.hidden-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    visibility: hidden; /* 🔹 Oculta pero mantiene el espacio */
+    height: auto; /* 🔹 Asegura que el contenido tenga altura */
+}
+
+/* Cuando la sección se vuelve visible */
+.hidden-section.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
