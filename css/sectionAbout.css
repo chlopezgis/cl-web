@@ -61,6 +61,7 @@
         width: 90%; /* Asegura que el texto no se encime */
         text-align: center;
         padding: 0px;
+        margin: auto;
     }
 
     .about-text-1 {
