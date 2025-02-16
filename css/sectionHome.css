@@ -11,7 +11,7 @@
     justify-content: space-between; /* Espacia los elementos */
 }
 
-.title {
+#home .title {
     font-size: 52px;
     text-align: center;
     padding-top: 10px;
@@ -109,11 +109,16 @@
         padding-right: 20px;
     }
 
+    #home .title {
+        font-size: 25px;
+    }
+   
+    #home h2{
+        font-size: 18px;
+    }
+
     .home-text-1{
-        /*
-        padding-left: 20px;
-        padding-right: 30px;
-        */
         padding: 20px 5%;
+        font-size: 14px;
     }
 }

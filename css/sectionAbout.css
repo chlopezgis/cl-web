@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sofia&display=swap');
+
 .about-container {
     display: flex; /* Utiliza Flexbox para alinear los divs en una fila */
     gap: 10px;
@@ -38,6 +40,13 @@
     text-align: justify;
 }
 
+#about .title {
+    font-size: 52px;
+    text-align: center;
+    padding-top: 10px;
+    font-family: Roboto;
+}
+
 /* 📱 Responsive: Menú hamburguesa en pantallas pequeñas */
 @media (max-width: 768px) {
     .about-container {
@@ -59,6 +68,10 @@
         margin: auto; /* Centra la imagen */
     }
 
+    #about .title {
+        font-size: 25px;
+    }
+
     .about-text {
         width: 90%; /* Asegura que el texto no se encime */
         text-align: center;
@@ -67,8 +80,8 @@
     }
 
     .about-text-1 {
+        padding: 20px 5%;
+        font-size: 14px;
         text-align: center;
-        padding-left: 20px;
-        padding-right: 30px;
     }
 }
