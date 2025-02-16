@@ -3,37 +3,39 @@
     gap: 10px;
     flex-wrap: wrap;
     justify-content: space-between; /* Espacia los elementos */
+    align-items: center;
 }
 
 .about-text, .about-foto {
     width: 30%; /* Puedes ajustar el ancho de cada div según lo que necesites */
-    padding-top: 60px;
+    padding-top: 20px;
 }
 
 .about-foto img {
-    width: 200px; /* Define el tamaño de la imagen */
-    height: 200px; /* Define el tamaño de la imagen */
+    width: 250px; /* Define el tamaño de la imagen */
+    height: 250px; /* Define el tamaño de la imagen */
     border-radius: 50%; /* Hace que la imagen sea un círculo */
     margin-right: auto;
     margin-left:0;
     object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+    align-items: center;
 }
 
 .about-text {
     width: auto;  /* Define el tamaño fijo del contenedor */
-    margin-left:auto;
-    margin-right: 0;
+    margin: auto;
     text-align: left;  /* Alinea el texto a la izquierda */
     flex: 1; /* Hace que el texto ocupe el espacio restante */
 }
 
 .about-text-1 {
     font-family: Arial, sans-serif;
-    font-size: 1.0rem;
-    line-height: 1.2;
+    font-size: 1.2rem;
+    line-height: 1.5;
     color: #09443aec;
-    margin: 0px 0;
-    text-align: left;
+    margin: 0px 10px;
+    padding-right: 100px;
+    text-align: justify;
 }
 
 /* 📱 Responsive: Menú hamburguesa en pantallas pequeñas */

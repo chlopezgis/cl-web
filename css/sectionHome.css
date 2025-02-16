@@ -37,12 +37,62 @@
 .home-text-1 {
     font-family: Arial, sans-serif;
     font-size: 1.2rem;
-    line-height: 1.2;
+    line-height: 1.5;
     color: #09443aec;
     margin: 0px 0;
     text-align: center;
-    padding: 20px 10%;
+    padding: 20px 200px 40px;
     font-family: Roboto;
+}
+
+/* Contenedor RRSS*/
+.social-container {
+    display: flex;
+    flex-direction: column; /* Apila los iconos y el botón */
+    align-items: center;
+    margin: 20px auto 50px;
+}
+
+/* Estilos para los iconos */
+.social-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 10px; /* Espacio entre los iconos y el botón */
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.social-links img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 50%;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+/* Botón "Contáctame" */
+.btn-contact {
+    display: inline-block;
+    background-color: #09443a;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-contact:hover {
+    background-color: #06685e;
 }
 
 /* 📱 Responsive: Menú hamburguesa en pantallas pequeñas */
