@@ -1,7 +1,3 @@
-#about {
-    margin-top: 30px; /* Mayor que la altura del header */
-}
-
 .about-container {
     display: flex; /* Utiliza Flexbox para alinear los divs en una fila */
     gap: 10px;
@@ -44,6 +40,7 @@
 @media (max-width: 768px) {
     .about-container {
         flex-direction: column; /* Cambia a diseño vertical */
+        align-items: center;
         text-align: center;
     }
 
@@ -51,7 +48,7 @@
         display: flex;
         justify-content: center;
         width: 100%; /* Asegura que el contenedor ocupe toda la pantalla */
-        padding: 50px 0px 0px 0px;
+        padding-top: 50px;
     }
 
     .about-foto img {
@@ -61,7 +58,7 @@
     }
 
     .about-text {
-        width: 100%; /* Asegura que el texto no se encime */
+        width: 90%; /* Asegura que el texto no se encime */
         text-align: center;
         padding: 0px;
     }
