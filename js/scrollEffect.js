@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll(".hidden-section");
 
-    // Asegura que las secciones tengan su espacio al inicio
+    // Asegurar que las secciones no sean visibles al inicio
     sections.forEach(section => {
         section.style.visibility = "hidden";
     });
@@ -9,8 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.visibility = "visible"; // 🔹 Se muestra pero mantiene la animación
+                entry.target.style.visibility = "visible";
                 entry.target.classList.add("show");
+            } else {
+                // 🔹 Si la sección deja de estar en pantalla, se vuelve a ocultar
+                entry.target.style.visibility = "hidden";
+                entry.target.classList.remove("show");
             }
         });
     }, { threshold: 0.2 });
