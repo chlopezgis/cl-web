@@ -1,24 +1,29 @@
 /* Contenedor principal de las tarjetas */
 .education-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que las tarjetas se distribuyan correctamente */
-    justify-content: center; /* Centra las tarjetas */
-    align-items: stretch; /* Hace que las tarjetas tengan la misma altura */
-    gap: 15px; /* Espacio entre tarjetas */
-    max-width: 800px; /* Ajusta el ancho máximo según necesites */
-    margin: auto; /* Centrar el contenedor */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Centra verticalmente el contenedor */
+    gap: 15px;
+    max-width: 800px;
+    margin: auto;
 }
 
-
+/* Tarjetas */
 .education-card {
-    background: white;
+    /*background: rgb(14, 107, 92);*/
+    background: linear-gradient(135deg, rgb(14, 107, 92, 0.9), rgba(16, 92, 66, 0.8));
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    width: 220px;
-    height: 220px;
+    width: 240px; /* Ajuste del ancho */
+    height: 250px; /* Ajuste de la altura */
     text-align: center;
+    display: flex;
+    flex-direction: column; /* Asegura disposición vertical */
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente */
 }
 
 /* Contenedor del logo */
@@ -26,31 +31,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Ocupar todo el ancho de la tarjeta */
-    height: 80px; /* Mantener un tamaño estándar */
-    margin-bottom: 15px; /* Espacio con el texto */
+    width: 100%;
+    height: 100px; /* Aumenta la altura para más espacio */
+    margin-bottom: 10px; /* Espacio con el texto */
 }
 
 /* Estilo del logo */
 .education-logo {
-    /*max-width: 60px; /* Se ajusta al ancho */
-    height: 60px; /* Se ajusta a la altura */
-    object-fit: contain; /* Evita deformaciones */
+    max-width: 80px; /* Aumentar tamaño */
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
 }
 
 /* Estilos de los textos */
 .education-card h3 {
-    font-size: 14px;
-    margin: 6px 0;
+    font-size: 18px; /* Aumentar tamaño de fuente */
+    margin: 8px 0;
+    color: white;
 }
 
 .education-degree {
-    font-size: 13px;
-    margin: 3px 0;
+    font-size: 14px;
+    color: rgb(248, 246, 212);
+    font-weight: bold;
+    margin: 5px 0;
 }
 
 .education-period {
-    font-size: 12px;
+    font-size: 13px;
+    color: rgb(147, 235, 209);
+    font-weight: bold;
 }
 
 #education .title {

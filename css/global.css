@@ -40,7 +40,6 @@ section {
     flex-direction: column;
     padding: 20px 0px;
     box-shadow: 0px 2px 4px rgba(71, 100, 94, 0.349);
-    /*border-radius: 8px;*/
     background: #f9f9f9;
     box-sizing: border-box; /* Asegura que los márgenes no causen desbordamiento */
 }
