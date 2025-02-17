@@ -1,7 +1,74 @@
-#contact a{
-    text-decoration: none;
+/* Sección de contacto */
+#contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 40px auto;
 }
 
-#contact li{
-    list-style: none;
+
+/* Contenedor del mapa */
+#map {
+    width: 50%;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 1px solid #d6ece9; /* Verde intermedio */
+}
+
+/* Contenedor del formulario */
+form {
+    max-width: 500px; /* Ajusta el ancho máximo del formulario */
+    width: 100%;
+    margin: auto; /* Centrar */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    border: 1px solid #116d65;
+    box-sizing: border-box; /* Ajusta el modelo de caja */
+}
+
+/* Estilos de los inputs y textarea */
+/* Asegura que los inputs y textarea respeten el ancho del formulario */
+form input, form textarea {
+    width: 100%;  /* Ocupa todo el ancho del formulario */
+    padding: 12px;
+    border: 1px solid #116d65; /* Verde intermedio */
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+    box-sizing: border-box; /* Evita que el padding y el borde afecten el tamaño */
+    margin-bottom: 10px;
+}
+
+/* Efecto al enfocar */
+form input:focus,
+form textarea:focus {
+    border-color: #116d65; /* Verde más fuerte */
+    outline: none;
+    box-shadow: 0 0 5px rgba(77, 139, 87, 0.5);
+}
+
+/* Botón de envío */
+form button {
+    background: #116d65; /* Verde fuerte */
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background: #2f6f2f; /* Verde más oscuro */
 }
