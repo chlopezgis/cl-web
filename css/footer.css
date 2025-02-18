@@ -1,0 +1,21 @@
+.footer {
+    background: linear-gradient(to bottom, rgba(241, 252, 251), rgb(240, 252, 250));
+    color: rgb(19, 99, 88);
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer .social-links a img {
+    width: 30px;
+    filter: brightness(1.2); /* Resalta los íconos verdes */
+    transition: transform 0.3s ease;
+}
+
+.footer .social-links a img:hover {
+    transform: scale(1.2);
+}

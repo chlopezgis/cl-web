@@ -5,17 +5,15 @@
     justify-content: center;
     align-items: center;
     padding: 50px 20px;
-    background: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     max-width: 900px;
     margin: 40px auto;
 }
 
-
 /* Contenedor del mapa */
 #map {
-    width: 50%;
+    width: 60%;
     height: 400px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -31,8 +29,8 @@ form {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: #ffffff;
-    border: 1px solid #116d65;
+    background: #116d65;
+    border: 1px solid #e9ebebdc;
     box-sizing: border-box; /* Ajusta el modelo de caja */
 }
 
@@ -41,7 +39,8 @@ form {
 form input, form textarea {
     width: 100%;  /* Ocupa todo el ancho del formulario */
     padding: 12px;
-    border: 1px solid #116d65; /* Verde intermedio */
+    background-color: #ecf1f1;
+    border: 1px solid #116d65d0; /* Verde intermedio */
     border-radius: 5px;
     font-size: 16px;
     transition: 0.3s;
@@ -52,16 +51,18 @@ form input, form textarea {
 /* Efecto al enfocar */
 form input:focus,
 form textarea:focus {
-    border-color: #116d65; /* Verde más fuerte */
+    border-color: #05504c; /* Verde más fuerte */
     outline: none;
-    box-shadow: 0 0 5px rgba(77, 139, 87, 0.5);
+    background-color: #f8daf2;
+    box-shadow: 0 0 5px rgba(106, 124, 121, 0.5);
 }
 
 /* Botón de envío */
 form button {
-    background: #116d65; /* Verde fuerte */
-    color: white;
-    border: none;
+    background: white; /* Verde fuerte */
+    color: #116d65;
+    font-weight: bold;
+    border: 1px solid rgb(0, 128, 96);
     padding: 12px;
     font-size: 16px;
     border-radius: 5px;
@@ -70,5 +71,14 @@ form button {
 }
 
 form button:hover {
-    background: #2f6f2f; /* Verde más oscuro */
+    background: #c6ebe0; /* Verde más oscuro */
+    color: rgb(110, 100, 56);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    #map {
+        width: 90%;
+        height: 350px;
+    }
 }
