@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var lon = -77.05871611946696;
     var lat = -11.931357083256126;
     var map = L.map('map', {
-                    scrollWheelZoom: false // Deshabilita el zoom para que no mezcle con el scroll
+                    scrollWheelZoom: false, // Deshabilita el zoom para que no mezcle con el scroll
+                    dragging: false // Desactiva el paneo
                 }).setView([lat, lon], 15);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -21,5 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Habilitas el zoom cuando el usuario hace clic en el mapa
     map.on('click', function() {
         map.scrollWheelZoom.enable(); // Habilita el zoom
+        map.dragging.enable(); // Habilita el paneo
     });
 });
