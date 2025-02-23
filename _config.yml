@@ -1,0 +1,5 @@
+theme: minima
+include: ["_pages"]
+markdown: kramdown
+sass:
+  style: compressed
