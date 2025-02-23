@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/templateArticles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <title>Snap to Geometry</title>
+</head>
+<body>
+    <header>
+        <h1>Ajustar puntos a la geometría más cercana</h1>
+    </header>
+
+    <nav class="indice">
+        <div id="logo">
+            <img src="../../img/logo.png" alt="logo">
+        </div>
+        <ul>
+            <li><a href="#introduccion">Introducción</a></li>
+            <li><a href="#objetivo">Objetivo</a></li>
+            <li><a href="#alcance">Alcance</a></li>
+            <li><a href="#datos">Datos</a></li>
+            <li><a href="#herramientas">Herramientas</a></li>
+            <li><a href="#preprocesamiento">Preprocesamiento</a></li>
+            <li><a href="#procesamiento">Ajuste Espacial</a></li>
+            <li><a href="#visualizacion">Visualizacion</a></li>
+            <li><a href="#recomendaciones">Recomendaciones</a></li>
+            <li><a href="#conclusiones">Conclusiones</a></li>
+        </ul>
+    </nav>
+
+    <section id="introduccion" class="content">
+        <h2 class="section-title">1. Introducción</h2>
+        <p>
+            En el análisis geoespacial, asegurar la coherencia topológica entre distintas capas de
+            información es fundamental para garantizar la precisión y confiabilidad de los datos.
+            En entornos urbanos, es común que las direcciones no se alineen exactamente con los
+            límites de sus respectivas manzanas debido a errores de captura o a la integración de
+            datos provenientes de distintas fuentes. Estas discrepancias pueden impactar los análisis
+            espaciales y las visualizaciones, por lo que es necesario aplicar técnicas de ajuste
+            geométrico que corrijan estas inconsistencias y preserven la integridad topológica de la
+            información.
+        </p>
+    </section>
+
+    <section id="objetivo" class="content">
+        <h2 class="section-title">2. Objetivo</h2>
+        <p>
+            Implementar un procedimiento para ajustar la ubicación de las direcciones a su manzana 
+            correspondiente, garantizando la coherencia topológica y mejorando la precisión de los 
+            datos espaciales.
+        </p>
+    </section>
+
+    <section id="alcance" class="content">
+        <h2 class="section-title">3. Alcance</h2>
+        <p>
+            En este artículo se trabajará con datos de direcciones y manzanas, representados como 
+            geometrías de puntos y polígonos, respectivamente. Cada entidad cuenta con un código 
+            que establece la relación entre ambas (código de manzana). El ajuste se aplicará únicamente 
+            a los puntos cuyo código de manzana coincida con el de la manzana correspondiente. Si los 
+            datos de direcciones no incluyen este código, se recomienda realizar una unión espacial 
+            con la manzana más cercana para asignarlo; sin embargo, este procedimiento queda fuera del 
+            alcance de este artículo.
+        </p>
+    </section>
+
+    <section id="datos" class="content">
+        <h2 class="section-title">4. Datos Utilizados</h2>
+        <p>Para este proceso, utilizaremos dos capas geoespaciales:</p>
+        <ul>
+            <li>Capa de direcciones: Representa ubicaciones de direcciones con un código de manzana asociado.</li>
+            <li>Capa de manzanas: Contiene los polígonos de las manzanas con su respectivo código.</li>
+        </ul>
+        <p>El código de manzana en ambas capas es clave para garantizar que el ajuste se realice correctamente.</p>
+    </section>
+
+    <section id="herramientas" class="content">
+        <h2 class="section-title">5. Herramientas para el Proceso</h2>
+        <p>Para realizar el ajuste de los puntos, utilizaremos los siguientes módulos de Python:</p>
+        <ul>
+            <li>GeoPandas: Para manejar datos espaciales en formato vectorial.</li>
+            <li>Shapely: Para encontrar el punto más cercano entre dos geometría.</li>
+        </ul>
+
+        <p>A continuación, importamos los módulos:</p>
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python">import geopandas as gpd
+from shapely.ops import nearest_points</code></pre>
+</div>
+<!--Fin código -->
+
+    </section>
+
+    <section id="preprocesamiento" class="content">
+        <h2 class="section-title">6. Preprocesamiento de Datos</h2>
+        <h3>Inspeccionar archivos de entrada</h3>
+        <p>
+            Los datos se almacenan en un GeoPackage llamado <em>"sample_data"</em>. Para identificar el nombre de 
+            cada capa, primero inspeccionaremos el archivo utilizando el comando <b>gdalinfo</b> de la suite 
+            GDAL.
+        </p>
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python">!ogrinfo data/sample_data.gpkg</code></pre>
+<pre class="output-block">
+    INFO: Open of `data/sample_data.gpkg'
+        using driver `GPKG' successful.
+    1: blocks (Multi Polygon)
+    2: address_points (Point)</pre>
+</div>
+<!-- Fin Codigo -->
+
+        <h3>Lectura de datos Geoespaciales</h3>
+        <p>
+            Una vez verificado los datos, procederemos a lectura de los datos geoespaciales
+            utilizando para esto geopandas y su método 
+            <b><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.read_file.html">read_file</a></b>
+        </p>
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python"># Lectura de manzanas 
+blocks = gpd.read_file(filename='data/sample_data.gpkg', 
+                       layer='blocks')
+                       
+# Lectura de direcciones
+apts = gpd.read_file(filename='data/sample_data.gpkg', 
+                     layer='address_points')</code></pre>
+</div>
+<!-- Fin Codigo -->
+
+        <h3>Filtrar columnas de interes</h3>
+        <p>
+            A continuación, analizamos las columnas de ambos GeoDataFrames para identificar 
+            los campos relevantes para el proceso.
+        </p>
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python">blocks.columns.values</code></pre>
+<pre class="output-block">
+    array(['OBJECTID', 'CENESTE', 'CENNORTE', 
+                'CODIGOSECTOR', 'CODIGOMANZANA', 'CODIGODISTRITO', 
+                'NOMBREMANZANA','geometry']), dtype=object</pre>
+</div>
+<!-- Fin Codigo -->
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python">apts.columns.values</code></pre>
+<pre class="output-block">
+    array([['OBJECTID', 'CODIGOPREDIO', 'NUMEROLOTE',
+                 'NUMEROPUERTA', 'CODIGODISTRITO', 'CODIGOSEGMENTOVIA', 
+                 'CODIGOMANZANA','geometry']), dtype=object</pre>
+</div>
+<!-- Fin Codigo -->
+
+        <p>
+            Para la capa de Manzanas, seleccionaremos los campos de "CODIGOMANZANA" y
+            "geometry". Para las direcciones, los campos de "OBJECTID", "CODIGOMANZANA" 
+            y "geometry" 
+        </p>
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python"># Filtrando manzanas
+blocks = blocks[['CODIGOMANZANA','geometry']]
+# Filtrando apts
+apts = apts[['OBJECTID','CODIGOMANZANA','geometry']]</code></pre>
+</div>
+<!-- Fin Codigo -->
+
+        <h3>Verificar el campo "CODIGOMANZANA"</h3>
+
+        <p>
+            El campo "CODIGOMANZANA" es el vínculo que relaciona las direcciones con las manzanas. 
+            Para unir ambas capas correctamente, este campo debe tener el mismo tipo de dato en 
+            ambas tablas. Verifiquemos que se cumpla esta condición
+        </p>
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python">blocks.dtypes</code></pre>
+<pre class="output-block">
+CODIGOMANZANA       int64
+geometry                        geometry
+dtype: object</pre>
+</div>
+<!-- Fin Codigo -->
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python">apts.dtypes</code></pre>
+<pre class="output-block">
+OBJECTID                        int64
+CODIGOMANZANA        float64
+geometry                        geometry
+dtype: object</pre>
+</div>
+<!-- Fin Codigo -->
+
+        <p>
+            Observamos que el campo "CODIGOMANZANA" en la capa de direcciones es de tipo float, 
+            mientras que en la capa de manzanas es de tipo integer. Para asegurar la compatibilidad 
+            entre ambas, convertiremos el campo en la capa de direcciones de float a integer.
+        </p>
+
+<!-- Codigo -->
+ <div class="code-container">
+<pre><code class="language-python"># Convertir de float a entero
+apts['CODIGOMANZANA'] = apts['CODIGOMANZANA'].astype('int64')
+# Consultar el tipo de dato de los campos
+apts.dtypes</code></pre>
+
+<pre class="output-block">
+OBJECTID                        int64
+CODIGOMANZANA        int64
+geometry                        geometry
+dtype: object
+</pre>
+</div>
+<!-- Fin Codigo -->
+
+        <h3>Verificar el sistema de referencia espacial</h3>
+
+        <p>
+            Para realizar el proceso de ajuste espacial, ambas capas deben estar en el mismo Sistema 
+            de Referencia. Evaluamos si ambas presentan el mismo CRS</p>
+        
+<!-- Codigo -->
+ <div class="code-container">
+<pre><code class="language-python">blocks.crs == apts.crs</code></pre>
+<pre class="output-block">True</pre>
+</div>
+<!-- Fin Codigo -->
+
+        <p>Ambas capas poseen el mismo CRS, veamos cual es:</p>
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python">blocks.crs</code></pre>
+<pre class="output-block">&lt;Derived Projected CRS: EPSG:32718&gt;
+    Name: WGS 84 / UTM zone 18S
+    Axis Info [cartesian]:
+    - E[east]: Easting (metre)
+    - N[north]: Northing (metre)
+    Area of Use:
+    - name: Between 78°W and 72°W, southern hemisphere between 80°S and equator, onshore and offshore. Argentina. Brazil. Chile. Colombia. Ecuador. Peru.
+    - bounds: (-78.0, -80.0, -72.0, 0.0)
+    Coordinate Operation:
+    - name: UTM zone 18S
+    - method: Transverse Mercator
+    Datum: World Geodetic System 1984 ensemble
+    - Ellipsoid: WGS 84
+    - Prime Meridian: Greenwich</pre>
+</div>
+<!-- Fin Codigo -->
+
+        <p>Ambas capas se encuentran en el CRS WGS 84 / UTM zone 18S (EPS: 32178)</p>
+
+        <h3>Calcular el anillo exterior para la manzanas</h3>
+
+        <p>
+            Para realizar el Snap al borde de la manzana necesitamos que la geometría sea de tipo lineal. 
+            Para esto, calcularemos el anillo exterior de los polígonos.
+        </p>
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python"># Convertir de Multipolygon a Polygon
+blocks = blocks.explode()
+    
+# Crear un campo con la geometría del anillo exterior
+blocks['exterior'] = blocks.exterior
+    
+# Visualizar el primer registro
+blocks[['CODIGOMANZANA','geometry','exterior']].head(1)</code></pre>
+<pre class="output-block"><table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>CODIGOMANZANA</th>
+            <th>geometry</th>
+            <th>exterior</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>0</b></td>
+            <td>81054</td>
+            <td>POLYGON ((273136.019 8676687.525, 273128.05 86...)</td>
+            <td>LINEARRING (273136.019 8676687.525, 273128.05 ...)</td>
+        </tr>
+    </tbody>
+</table></pre>
+</div>
+<!-- Fin Codigo -->
+
+    </section>
+
+    <section id="procesamiento" class="content">
+        <h2 class="section-title">7. Ajuste Espacial</h2>
+
+        <p>
+            Para realizar proceso de ajuste espacial utilizaremos la función 
+            <a href="https://shapely.readthedocs.io/en/2.0.4/manual.html#nearest-points" target="_blank">
+                <b>nearest_points</b>
+            </a>  
+            que se utiliza para encontrar los puntos más cercanos entre dos geometrías.
+        </p>
+        <br>
+        <p><b>Descripción:</b></p>
+
+        <p><em>nearest_points(geom1, geom2)</em> devuelve un par de puntos:</p>
+
+        <ul>
+            <li>El primer punto pertenece a geom1 y es el más cercano a geom2.</li>
+            <li>El segundo punto pertenece a geom2 y es el más cercano a geom1.</li>
+        </ul>
+
+        <p>
+            Para garantizar que cada dirección se ajuste correctamente a su manzana correspondiente, 
+            primero alinearemos ambas capas utilizando el campo "CODIGOMANZANA". Dado que cada punto 
+            debe asociarse con la manzana que comparte el mismo código, primero incorporaremos la
+            geometría de los polígonos al GeoDataFrame de las direcciones. Luego, utilizaremos 
+            <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html" target="_blank"><b>apply</b></a>
+            para calcular el punto de ajuste de manera eficiente, optimizando el proceso al reducir 
+            comparaciones innecesarias.
+        </p>
+        <br>
+        <p>Por lo tanto, el primer paso será alinear las manzanas con el siguiente código:</p>
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python">aptsMerge = apts.merge(blocks[['CODIGOMANZANA','exterior']],
+                       on='CODIGOMANZANA', 
+                       how='left')</code></pre>
+</div>
+<!-- Fin Codigo -->
+
+        <p>Visualicemos el resultado:</p>
+
+<!-- Codigo -->
+ <div class="code-container">
+<pre><code class="language-python">aptsMerge[['OBJECTID','CODIGOMANZANA','geometry','exterior']].head(3)</code></pre>
+<pre class="output-block">    <table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>OBJECTID</th>
+            <th>CODIGOMANZANA</th>
+            <th>geometry</th>
+            <th>exterior</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>0</b></td>
+            <td>713601</td>
+            <td>81183</td>
+            <td>POINT (273444.79 8677076.237)</td>
+            <td>LINEARRING (273476.439 8677064.485, 273472.341...)</td>
+        </tr>
+        <tr>
+            <td><b>1</b></td>
+            <td>713604</td>
+            <td>81197</td>
+            <td>POINT (273615.384 8677148.195)</td>
+            <td>LINEARRING (273626.013 8677073.934, 273622.729...)</td>
+        </tr>
+        <tr>
+            <td><b>2</b></td>
+            <td>713605</td>
+            <td>81197</td>
+            <td>POINT (273611.117 8677140.769)</td>
+            <td>LINEARRING (273626.013 8677073.934, 273622.729...)</td>
+        </tr>
+    </tbody>
+</table></pre>
+</div>
+<!-- Fin Codigo -->
+
+    <p>
+        El siguiente código ajusta espacialmente cada punto a su manzana 
+        correspondiente, utilizando ambas geometrías.
+    </p>
+
+<!-- Codigo -->
+<div class="code-container">
+<pre><code class="language-python">aptsMerge["snap"] = aptsMerge.apply(lambda row: nearest_points(row["geometry"],
+                                                                row["exterior"])[1],
+                                     axis=1)</code></pre>
+</div>
+<!-- Fin Codigo -->
+
+    </section>
+
+    <section id="visualizacion" class="content">
+        <h2 class="section-title">8. Visualización de Resultados</h2>
+        <p>Para evaluar el ajuste, se comparan las ubicaciones antes y después del proceso utilizando:</p>
+        <ul>
+            <li>Gráficos con GeoPandas: Permiten ver cómo los puntos se han alineado correctamente con las manzanas.</li>
+            <li>Mapas interactivos con Folium: Facilitan la exploración de los datos ajustados en un entorno dinámico, permitiendo alternar entre la vista original y la corregida.</li>
+        </ul>
+    </section>
+
+    <section id="recomendaciones" class="content">
+        <h2 class="section-title">9. Recomendaciones Finales</h2>
+        <p>Para asegurar un ajuste preciso y confiable, se deben considerar los siguientes puntos:</p>
+        <ul>
+            <li>Siempre verificar la coherencia de los códigos de manzana antes de aplicar el ajuste.</li>
+            <li>Si los datos provienen de fuentes diferentes, realizar una validación previa antes de asignar puntos a manzanas.</li>
+            <li>Visualizar los resultados antes y después, para asegurarse de que el ajuste ha sido exitoso.</li>
+        </ul>
+    </section>
+
+    <section id="conclusion" class="content">
+        <h2 class="section-title">10. Conclusión</h2>
+        <p>
+            El uso de Snap To Geometry en Python permite corregir la ubicación de direcciones
+            respetando la relación punto-manzana mediante un código común. Gracias a herramientas
+            como GeoPandas, Shapely y Folium, podemos automatizar este proceso y mejorar la calidad
+            de nuestros datos espaciales.
+        </p>
+    </section>
+</body>
+</html>
