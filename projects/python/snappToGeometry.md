@@ -1,6 +1,8 @@
-<header>
-        <h1>Ajustar puntos a la geometría más cercana</h1>
-</header>
+<head>
+  <link rel="stylesheet" type="text/css" href="../../css/templateArticles.css">
+</head>
+
+# Ajustar puntos a la geometría más cercana
 
 ## 1. Introducción
 
