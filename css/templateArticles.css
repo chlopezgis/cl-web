@@ -11,26 +11,20 @@ body {
     color: #333333;
 }
 
-/* Contenedor principal */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-/* Estilos del header */
+/* Header */
 header {
-    color: #3cad8b;
-    padding: 10px 0px 10px 100px;
-    text-align: left;
-    font-size: 22px;
-    width: 100%;
     margin-left: 20%;
+    width: 80%;
+    color: #30a19c;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 20px;
     box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: relative;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-/* Botón para mostrar/ocultar índice (Menú hamburguesa) */
+/* Botón menú hamburguesa */
 .menu-btn {
     display: none;
     background-color: #3cad8b;
@@ -45,37 +39,28 @@ header {
     z-index: 1000;
 }
 
-/* Índice */
+.jp-NotebookPanel {
+    display: flex;
+}
+
+
 .indice {
-    background: linear-gradient(to bottom, rgba(245, 245, 245, 0.8), rgba(255, 255, 255, 0.5));
-    color: #09443aec;
-    padding: 20px;
+    margin-left: 0%;
     width: 20%;
-    height: 100vh;
+    min-width: 200px; /* Asegura que no se haga muy pequeño */
     position: fixed;
     left: 0;
     top: 0;
+    height: 100vh;
     overflow-y: auto;
+    background: linear-gradient(to bottom, rgba(245, 245, 245, 0.8), rgba(255, 255, 255, 0.5));
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Boton hamburguesa para pantallas pequeñas */
-.menu-btn {
-    display: none;
-    background-color: #3cad8b;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    border-radius: 5px;
-    z-index: 1000;
-}
 
-/* Elemntos del indice */
 .indice ul {
     list-style: none;
     padding: 0;
@@ -93,64 +78,65 @@ header {
     border-radius: 5px;
 }
 
-/* Al pasar sobre el indice */
 .indice ul li a:hover {
     background-color: #c8e6c9;
 }
 
-/* Activo */
 .indice ul li a.selected {
     background-color: rgba(9, 177, 171, 0.822);
-    color: rgb(255, 255, 255);
+    color: white;
 }
 
-/* Estilos del logo */
+/* Logo */
 #logo {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Asegura que se mantenga alineado verticalmente si es necesario */
-    margin-bottom: 60px; /* Espaciado debajo del logo */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
 }
 
 #logo img {
-    max-width: 40%; /* Ajusta el tamaño sin desbordar */
+    max-width: 40%;
     height: auto;
 }
 
-/* Estilos para el contenido */
-main {
-    padding: 20px 30px;
-	overflow-y: auto;
-    width: 80%;
+/* Contenido principal */
+section.content {
     margin-left: 20%;
-	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    margin-bottom: 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 80%;
+    padding: auto;
 }
 
-main h2{
+section h2 {
     color: #30a19c;
-    border-bottom: 2px solid #35a09b;
+    /*border-bottom: 2px solid #35a09b;*/
+    margin-bottom: 20px;
 }
 
-/* Secciones */
-.content {
-    margin-bottom: 30px;
-    padding: 20px;
+section h3{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 16px;
 }
 
-/* Bloque de código */
-.code-block {
-    background-color: #f0f8f6ea; /* Verde muy claro */
+/* Bloques de código por si falla "prisma"*/
+.code-container {
+    /*background-color: #f7faf9ea;*/
     color: #08473a;
     padding: 10px;
     border-radius: 2px;
-    margin: 20px 0px;
+    margin: 20px 0;
     font-family: "Courier New", Courier, monospace;
-    font-size: 14px;
+    font-size: 13px;
     overflow-x: auto;
-    border: 0.5px solid #e3eeec;
+    /*border: 0.5px solid #e3eeec;*/
 }
 
-.code-block pre {
+.code-container pre {
     margin: 0;
     white-space: pre-wrap;
 }
@@ -163,9 +149,56 @@ img {
     margin: auto;
 }
 
-/* Ocultar logo en pantallas pequeñas */
-#logo {
-    display: block;
+/* Párrafos y listas */
+p, .content ul {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5;
+    text-align: justify;
+    font-size: 14px;
+}
+
+.content ul {
+    list-style: square;
+    padding-left: 30px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.content ul li::marker {
+    color: #24726e;
+    font-size: 1.5em;
+}
+
+/* Tablas */
+table {
+    width: 50%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+th, td {
+    padding: 4px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+th {
+    font-weight: bold;
+    border-bottom: 1px solid #215c4a; /* Línea negra bajo la cabecera */
+}
+
+tr:last-child {
+    border-bottom: none; /* Evita línea extra en la última fila */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Gris claro */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* Blanco */
 }
 
 /* Responsive */
@@ -189,18 +222,24 @@ img {
         display: block;
     }
 
-    main {
+    section.content {
         width: 100%;
         margin-left: 0;
         padding: 15px;
     }
 
-    /* Estilos del header */
     header {
-        margin-left: 0%;
-        font-size: 18px;
+        font-size: 15px;
+    }
+    p, .content ul{
+        font-size: 12px;
     }
 
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 10px;
+    }
 }
 
 @media screen and (max-width: 480px) {
