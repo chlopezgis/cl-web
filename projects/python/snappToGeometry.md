@@ -1,6 +1,9 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="../../css/templateArticles.css">
-</head>
+---
+title: "Mi Artículo en GitHub"
+author: "Charlie López"
+date: "2025-02-23"
+layout: custom
+---
 
 # Ajustar puntos a la geometría más cercana
 
